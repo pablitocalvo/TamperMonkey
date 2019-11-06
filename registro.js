@@ -52,7 +52,7 @@
 
         //alert("selezionato="+classeSelect.options[classeSelect.selectedIndex].text);
 
-alert("g ="+giorno+"ora="+oraScol+" idnex="+orario[giorno][oraScol]);
+        //alert("g ="+giorno+"ora="+oraScol+" idnex="+orario[giorno][oraScol]);
 
         if (orario[giorno][oraScol] < 0) {
             alert("non sei in classe");
