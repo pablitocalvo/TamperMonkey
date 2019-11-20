@@ -21,9 +21,9 @@
         var minuti=d.getMinutes();
 
 
-       // giorno=2;
-       // ora=12;
-       // minuti=23;
+        //giorno=2;
+        //ora=12;
+        //minuti=23;
         //alert ( giorno+" "+ora+" "+minuti);
         if (( giorno < 0 ) || (giorno > 4)) {
             return;
@@ -59,11 +59,19 @@
             return
         }
 
-        classeSelect.selectedIndex= orario[giorno][oraScol];
+        alert(classeSelect.length)
+        var delta_primo_accesso ;
+        if (classeSelect.length=10) {
+            delta_primo_accesso=1}
+        else {
+            delta_primo_accesso=0};
+
+        classeSelect.selectedIndex= orario[giorno][oraScol]+ delta_primo_accesso;
         //classeSelect.selectedIndex= 0;
          //$( "#ContentPlaceHolderMenu_ddlClassi" ).trigger("change");
 
        // for (var i=0; i<9; i++) alert( classeSelect[i].innerHTML);
+
 
         // ora bisgno triggerare onClick sul registro ....
        $( "input[name='ctl00$ContentPlaceHolderBody$Button_RE_Classe_G']").trigger("click");
