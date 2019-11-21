@@ -21,9 +21,9 @@
         var minuti=d.getMinutes();
 
 
-        //giorno=2;
-        //ora=12;
-        //minuti=23;
+        giorno=2;
+        ora=12;
+        minuti=23;
         //alert ( giorno+" "+ora+" "+minuti);
         if (( giorno < 0 ) || (giorno > 4)) {
             return;
@@ -35,7 +35,7 @@
         var i_orario =  ora*60 + minuti;
 
         if ((i_orario < i_oraIng ) || (i_orario > i_oraUsc ))  {
-           return;
+           //return;
         }
 
         var oraScol= Math.floor((i_orario - i_oraIng) /54) ;
@@ -59,7 +59,7 @@
             return
         }
 
-        alert(classeSelect.length)
+        //alert(classeSelect.length)
         var delta_primo_accesso ;
         if (classeSelect.length=10) {
             delta_primo_accesso=1}
@@ -79,6 +79,16 @@
     }
 
 
+
+    var miaBarra= document.createElement("DIV");
+    var att = document.createAttribute("class");
+    att.value = "RE_TRow_h45";
+    miaBarra.setAttributeNode(att);
+    var containerBar = document.querySelector("#menuRow > div");
+
+    containerBar.insertBefore(miaBarra,containerBar.childNodes[0]);
+
+
     // Your code here...
     var headerRow=document.getElementById("headerRow");
     var button=document.createElement("BUTTON");
@@ -86,7 +96,7 @@
     button.style.width = "45px";
 
     button.addEventListener("click", bottoneOnClick);
-    headerRow.insertBefore(button, headerRow.childNodes[0]);
+    miaBarra.insertBefore(button, miaBarra.childNodes[0]);
 
 
 
