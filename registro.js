@@ -98,10 +98,13 @@ var selezioneClasse=document.getElementById("ContentPlaceHolderMenu_ddlClassi");
   // Your code here...
     // aggiunge una barra personalizzata
     var miaBarra= document.createElement("DIV");
-    var att = document.createAttribute("class");
-    att.value = "RE_TRow_h45";
-    miaBarra.setAttributeNode(att);
-    var containerBar = document.querySelector("#menuRow > div > div.RE_Table_MasterPage");
+    //var att = document.createAttribute("class");
+    //att.value = "RE_TRow_h45";
+    //miaBarra.setAttributeNode(att);
+
+
+    //var containerBar = document.querySelector("#menuRow > div > div.RE_Table_MasterPage");
+    var containerBar = document.querySelector("#GlobalContent > div > div:nth-child(2)");
     containerBar.insertBefore(miaBarra,containerBar.childNodes[0]);
 
 
