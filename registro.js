@@ -6,32 +6,38 @@
 // @author       You
 // @match        https://re22.axioscloud.it/Secret/REMenu.aspx*
 // @grant        none
+// @run-at document-end
 // ==/UserScript==
 
 (function() {
     'use strict';
 
-     const _3Bs = 0; const _4Bs = 1; const _4Bt = 2; const _4Cs = 3;const _4Ct = 4; const _5Bs = 5; const _5Bt = 6; const _5Cs = 7; const _5Ct = 8;
+     const _3BS = 0; const _4BS = 1; const _4BT = 2; const _4CS = 3;const _4CT = 4; const _5BS = 5; const _5BT = 6; const _5CS = 7; const _5CT = 8;
 
-        const orario = [[  -1  ,   -1 ,   -1 ,  -1 ,  -1  , _5Ct , _5Cs   ], //lunedi
-                  [  -1  ,   -1 , _4Ct , _5Bs, _5Bt ,  -1  , _4Bs   ], //martedi
-                  [ _5Cs , _4Bs , _5Ct , _4Cs, _4Cs ,  -1  ,  -1    ], //mercoledi
-                  [  -1  , _5Bt , _3Bs , _4Bt,  -1  , _5Bs , _3Bs   ], //giovedi
-                  [  -1  ,   -1 ,   -1 ,  -1 , _4Ct , _4Bt , -1     ], //venerdi
-                 ];
+     const orario = [[  -1  ,   -1 ,   -1 ,  -1 ,  -1  , _5CT , _5CS   ], //lunedi
+                     [  -1  ,   -1 , _4CS , _5BS, _5BT ,  -1  , _4BS   ], //martedi
+                     [ _5CS , _4BS , _5CT , _4CS, _4CS ,  -1  ,  -1    ], //mercoledi
+                     [  -1  , _5BT , _3BS , _4BT,  -1  , _5BS , _3BS   ], //giovedi
+                     [  -1  ,   -1 ,   -1 ,  -1 , _4CT , _4BT , -1     ], //venerdi
+                     [ _5CS , _4BS , _5CT , _4CS, _4CS ,  -1  ,  -1    ],
+                     [  -1  ,   -1 ,   -1 ,  -1 ,  -1  ,  -1  , -1     ], //sabato
+                     [ _5CS , _4BS , _5CT , _4CS, _4CS ,  -1  ,  -1    ] //domenica
+
+                    ];
 
 function deselezionaClasse(){
 return; //non funziona ancora !!!
-var selezioneClasse=document.getElementById("ContentPlaceHolderMenu_ddlClassi");
 
-    var opzioneNulla=document.createElement("OPTION");
+//     var selezioneClasse=document.getElementById("ContentPlaceHolderMenu_ddlClassi");
 
-    opzioneNulla.innerHTML="Selezionare una Classe-Materia";
-    opzioneNulla.selected=true;
+//     var opzioneNulla=document.createElement("OPTION");
 
-    selezioneClasse.insertBefore(opzioneNulla,selezioneClasse.childNodes[0]);
-    // triggera on click su ....
-        $( "input[name='ctl00$ContentPlaceHolderBody$Button_RE_Classe_G']").trigger("click");
+//     opzioneNulla.innerHTML="Selezionare una Classe-Materia";
+//     opzioneNulla.selected=true;
+
+//     selezioneClasse.insertBefore(opzioneNulla,selezioneClasse.childNodes[0]);
+//     // triggera on click su ....
+//         $( "input[name='ctl00$ContentPlaceHolderBody$Button_RE_Classe_G']").trigger("click");
 
 }
 
@@ -68,11 +74,7 @@ var selezioneClasse=document.getElementById("ContentPlaceHolderMenu_ddlClassi");
             return
         }
 
-        var opzioniClasse=document.querySelectorAll("#ContentPlaceHolderMenu_ddlClassi > optgroup > option");
-        opzioniClasse[orario[giorno][oraScol]].selected = true;
-
-        // triggera on click su ....
-        $( "input[name='ctl00$ContentPlaceHolderBody$Button_RE_Classe_G']").trigger("click");
+        selezionaClasseDaIndice(orario[giorno][ora]);
     }
 
 
@@ -87,17 +89,26 @@ var selezioneClasse=document.getElementById("ContentPlaceHolderMenu_ddlClassi");
         if (orario[giorno][ora] < 0){
             deselezionaClasse();return;
         }
+alert("ora chiamo seleziona classe da indice="+orario[giorno][ora]);
+        selezionaClasseDaIndice(orario[giorno][ora]);
+    }
 
+    function selezionaClasseDaIndice( indice ){
+//alert(indice);
         var opzioniClasse=document.querySelectorAll("#ContentPlaceHolderMenu_ddlClassi > optgroup > option");
-        opzioniClasse[orario[giorno][ora]].selected = true;
+        opzioniClasse[indice].selected = true;
 
         // TODO: è veramente necessario? triggera on click su ....
         $( "input[name='ctl00$ContentPlaceHolderBody$Button_RE_Classe_G']").trigger("click");
     }
+
+
 //****************************************
   // Your code here...
+//****************************************
+
     // aggiunge una barra personalizzata
-    var miaBarra= document.createElement("DIV");
+{    var miaBarra= document.createElement("DIV");
     //var att = document.createAttribute("class");
     //att.value = "RE_TRow_h45";
     //miaBarra.setAttributeNode(att);
@@ -169,5 +180,19 @@ var selezioneClasse=document.getElementById("ContentPlaceHolderMenu_ddlClassi");
     button_1.style.width = "20px";
     button_1.addEventListener("click", function() { oraSelezionata(0); });
     miaBarra.insertBefore(button_1, miaBarra.childNodes[0]);
+}
+
+  // controlla azioni da compiere
+
+        if (sessionStorage.Azione=="SELEZIONA"){
+            sessionStorage.Azione="NULLA";
+            var indice= sessionStorage.Classe;
+//alert( indice);
+            sessionStorage.removeItem('Classe');
+//alert( eval(indice));
+             selezionaClasseDaIndice( eval(indice) );
+        }
+
+
 
 })();
