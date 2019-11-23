@@ -19,9 +19,8 @@
                      [ _5CS , _4BS , _5CT , _4CS, _4CS ,  -1  ,  -1    ], //mercoledi
                      [  -1  , _5BT , _3BS , _4BT,  -1  , _5BS , _3BS   ], //giovedi
                      [  -1  ,   -1 ,   -1 ,  -1 , _4CT , _4BT , -1     ], //venerdi
-                     [ _5CS , _4BS , _5CT , _4CS, _4CS ,  -1  ,  -1    ],
                      [  -1  ,   -1 ,   -1 ,  -1 ,  -1  ,  -1  , -1     ], //sabato
-                     [ _5CS , _4BS , _5CT , _4CS, _4CS ,  -1  ,  -1    ] //domenica
+                     [  -1  ,   -1 ,   -1 ,  -1 ,  -1  ,  -1  , -1     ] //domenica
 
                     ];
 
