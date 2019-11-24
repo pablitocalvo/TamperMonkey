@@ -14,18 +14,17 @@
 
      const _3BS = 0; const _4BS = 1; const _4BT = 2; const _4CS = 3;const _4CT = 4; const _5BS = 5; const _5BT = 6; const _5CS = 7; const _5CT = 8;
 
-     const orario = [[  -1  ,   -1 ,   -1 ,  -1 ,  -1  , _5CT , _5CS   ], //lunedi
+     const orario = [[  -1  ,   -1 ,   -1 ,  -1 ,  -1  ,  -1  , -1     ], //domenica
+                     [  -1  ,   -1 ,   -1 ,  -1 ,  -1  , _5CT , _5CS   ], //lunedi
                      [  -1  ,   -1 , _4CS , _5BS, _5BT ,  -1  , _4BS   ], //martedi
                      [ _5CS , _4BS , _5CT , _4CS, _4CS ,  -1  ,  -1    ], //mercoledi
                      [  -1  , _5BT , _3BS , _4BT,  -1  , _5BS , _3BS   ], //giovedi
                      [  -1  ,   -1 ,   -1 ,  -1 , _4CT , _4BT , -1     ], //venerdi
                      [  -1  ,   -1 ,   -1 ,  -1 ,  -1  ,  -1  , -1     ], //sabato
-                     [  -1  ,   -1 ,   -1 ,  -1 ,  -1  ,  -1  , -1     ] //domenica
-
                     ];
 
-function deselezionaClasse(){
-return; //non funziona ancora !!!
+    function deselezionaClasse(){
+            return; //non funziona ancora !!!
 
 //     var selezioneClasse=document.getElementById("ContentPlaceHolderMenu_ddlClassi");
 
@@ -44,7 +43,7 @@ return; //non funziona ancora !!!
 
         var d = new Date();
         var t = d.getTime();
-        var giorno=d.getDay()-1;
+        var giorno=d.getDay();
         var ora=d.getHours();
         var minuti=d.getMinutes();
 
@@ -73,27 +72,27 @@ return; //non funziona ancora !!!
             return
         }
 
-        selezionaClasseDaIndice(orario[giorno][ora]);
+        selezionaClasseDaIndice(orario[giorno][oraScol]);
     }
 
 
-    function oraSelezionata( ora )
-    {   //TODO: inserire controllo ora compresa 1-7
+    function oraSelezionata( ora0_7 )
+    {   //TODO: inserire controllo ora compresa 0_7
 //alert("ora selezionat ="+ora);
         var d = new Date();
-        var giorno=d.getDay()-1;
+        var giorno=d.getDay();
 
 //alert ( "g="+giorno+" h="+ora);
 
-        if (orario[giorno][ora] < 0){
+        if (orario[giorno][ora0_7] < 0){
             deselezionaClasse();return;
         }
-alert("ora chiamo seleziona classe da indice="+orario[giorno][ora]);
-        selezionaClasseDaIndice(orario[giorno][ora]);
+//alert("ora chiamo seleziona classe da indice="+orario[giorno][ora]);
+        selezionaClasseDaIndice(orario[giorno][ora0_7]);
     }
 
     function selezionaClasseDaIndice( indice ){
-//alert(indice);
+//alert("selDaIndice"+indice);
         var opzioniClasse=document.querySelectorAll("#ContentPlaceHolderMenu_ddlClassi > optgroup > option");
         opzioniClasse[indice].selected = true;
 
@@ -186,6 +185,7 @@ alert("ora chiamo seleziona classe da indice="+orario[giorno][ora]);
         if (sessionStorage.Azione=="SELEZIONA"){
             sessionStorage.Azione="NULLA";
             var indice= sessionStorage.Classe;
+
 //alert( indice);
             sessionStorage.removeItem('Classe');
 //alert( eval(indice));
