@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Registro
 // @namespace    http://tampermonkey.net/
-// @version      0.4
+// @version      0.5
 // @updateURL    https://pablitocalvo.github.io/TamperMonkey/registro.js
 // @description  try to take over the world!
 // @author       You
@@ -17,11 +17,11 @@
      const _3BS = 0; const _4BS = 2; const _4BT = 3; const _5AS = 5;const _5AT = 6; const _5BS = 8; const _5BT = 9 ; const _5CS = 11; const _5CT = 12;
 
      const orario = [[  -1  ,   -1 ,   -1 ,  -1  ,  -1  ,  -1  , -1     ], //domenica
-                     [  -1  , _5BS , _5CT , _5AS , _5BT ,  -1  , -1     ], //lunedi 2020
-                     [ _5AS , _5AS , _5BS , _5CS , _5CS ,  -1  , -1     ], //MARTEDI 2020
-                     [  -1  ,   -1 , _4BS , _3BS ,  -1  ,  -1  , -1     ], //MERCOLEDI 2020
-                     [ _5CT , _5AS ,  -1  , _5BS ,  -1  ,  -1  , -1     ], //GIOVEDI 2020
-                     [ _3BS ,   -1 , _4BT , _4BT , _4BS ,  -1  , -1     ], //VENERDI 2020
+                     [ _5BT , _5BS , _5CS ,  -1  ,  -1  ,  -1  , -1     ], //lunedi 2020
+                     [ _4BT , _3BS , _5AT , _5AS ,  -1  ,  -1  , -1     ], //MARTEDI 2020
+                     [ _4BS ,   -1 ,   -1 , _5AS ,  -1  ,  -1  , -1     ], //MERCOLEDI 2020
+                     [ _5CT , _5CT , _3BS , _4BT ,  -1  ,  -1  , -1     ], //GIOVEDI 2020
+                     [ _5CS , _5CS , _4BS , _5AT , _5BT ,  -1  , -1     ], //VENERDI 2020
                      [  -1  ,   -1 ,   -1 ,  -1  ,  -1  ,  -1  , -1     ], //sabato
                     ];
 
