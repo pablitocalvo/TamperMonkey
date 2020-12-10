@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Registro
 // @namespace    http://tampermonkey.net/
-// @version      0.5
+// @version      0.5.1
 // @updateURL    https://pablitocalvo.github.io/TamperMonkey/registro.js
 // @description  try to take over the world!
 // @author       You
