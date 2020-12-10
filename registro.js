@@ -12,7 +12,7 @@
 
 (function() {
     'use strict';
-
+//prova
      const _3BS = 0; const _4BS = 2; const _4BT = 3; const _5AS = 5;const _5AT = 6; const _5BS = 8; const _5BT = 9 ; const _5CS = 11; const _5CT = 12;
 
      const orario = [[  -1  ,   -1 ,   -1 ,  -1  ,  -1  ,  -1  , -1     ], //domenica
