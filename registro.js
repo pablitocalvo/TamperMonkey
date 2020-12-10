@@ -3,6 +3,7 @@
 // @name         Registro
 // @namespace    http://tampermonkey.net/
 // @version      0.2
+// @updateURL    https://pablitocalvo.github.io/TamperMonkey/registro.js
 // @description  try to take over the world!
 // @author       You
 // @match        https://re22.axioscloud.it/Secret/REMenu.aspx*
