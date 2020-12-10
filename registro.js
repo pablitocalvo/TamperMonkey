@@ -37,7 +37,7 @@
 
 
      selezioneClasse.insertBefore(opzioneNulla,selezioneClasse.childNodes[0]);
-        alert(" selezionat =");
+//        alert(" selezionat =");
 //     // triggera on click su ....
 //         $( "input[name='ctl00$ContentPlaceHolderBody$Button_RE_Classe_G']").trigger("click");
 
